@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Adiciona a lista de participantes
         const participantsList = details.participants.length
-          ? `<ul>${details.participants.map(email => `<li>${email}</li>`).join('')}</ul>`
+          ? `<ul class="participants-list">${details.participants.map(email => `<li>${email}</li>`).join('')}</ul>`
           : "<em>No participants yet.</em>";
 
         activityCard.innerHTML = `
@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
-          <p><strong>Participants:</strong></p>
-          ${participantsList}
+          <div>
+            <strong>Participants:</strong>
+            ${participantsList}
+          </div>
         `;
 
         activitiesList.appendChild(activityCard);
